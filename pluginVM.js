@@ -1,5 +1,32 @@
 function PluginVM() {
 
+    this.onInit = function () {
+        const button = document.createElement('button'),
+            div = document.createElement('div');
+
+        button.innerHTML = "Executar plugin";
+        button.addEventListener('click', PluginVM.makeChanges);
+        button.style = `
+            position: fixed;
+            z-index: 2;
+            bottom: 10px;
+            border: 0;
+            padding: 10px;
+            border-radius: 4px;
+            font-weight: bold;
+            background-color: red;
+        `;
+
+        div.style = `
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        `;
+
+        document.body.append(div);
+        div.append(button);
+    }
+
     this.makeChanges = function () {
         var aux, temp, filterFunction, filteredTree, textNodes = [];
 
@@ -50,4 +77,4 @@ function PluginVM() {
 
 var PluginVM = new PluginVM();
 
-PluginVM.makeChanges();
+PluginVM.onInit();
