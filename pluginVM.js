@@ -5,33 +5,31 @@ function PluginVM() {
             div = document.createElement('div');
 
         button.innerHTML = "Executar plugin";
-        button.addEventListener('click', PluginVM.makeChanges);
-        button.style = `
-            position: fixed;
-            z-index: 2;
-            bottom: 10px;
-            border: 0;
-            padding: 10px;
-            border-radius: 4px;
-            font-weight: bold;
-            background-color: red;
-        `;
 
-        div.style = `
-            width: 100%;
-            display: flex;
-            justify-content: center;
-        `;
+        button.addEventListener("click", PluginVM.makeChanges);
 
-        document.body.append(div);
-        div.append(button);
+        button.className += "btn btn-danger";
+
+        button.setAttribute("id", "buttonPluginVM");
+
+        button.style.position = "fixed";
+        button.style.zIndex = "2";
+        button.style.bottom = "10px";
+        button.style.fontFamily = "Arial";
+
+        div.style.width = "100%";
+        div.style.display = "flex";
+        div.style.justifyContent = "center";
+
+        document.body.appendChild(div);
+        div.appendChild(button);
     }
 
     this.makeChanges = function () {
         var aux, temp, filterFunction, filteredTree, textNodes = [];
 
         filterFunction = function (node) {
-            return (node.nodeType === 3 && node.textContent.trim() !== '') || node.tagName == "IMG" ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_SKIP;
+            return (node.nodeType === 3 && node.textContent.trim() !== '' && node.parentNode.id != 'buttonPluginVM') || node.tagName == "IMG" ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_SKIP;
         };
 
         temp = /MSIE|Trident/.test(navigator.userAgent) ? filterFunction : {
