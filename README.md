@@ -11,8 +11,8 @@ Include "<script src="./pluginVM.js" defer></script>" to your main html file sit
 
 Open your project through the main html file, the plugin is going to add a floating button, you just have to click on it!
 
-## Compability
+## Compatibility
 
-Google Chrome: 74.0.3729.131
-Mozilla Firefox: 66.0.5
-Internet Explorer: 11.437.17763.0
+Google Chrome: 74.0.3729.131;
+Mozilla Firefox: 66.0.5;
+Internet Explorer: 11.437.17763.0.
