@@ -41,7 +41,7 @@ function PluginVM() {
         while (aux = filteredTree.nextNode())
             textNodes[textNodes.length] = aux;
 
-        for (var nodesLength = textNodes.length, i = 0; i < nodesLength; i++) {
+        for (var i = textNodes.length - 1; i >= 0; i--) {
             const element = textNodes[i];
 
             setFontSizeAndFamily(element.parentNode);
